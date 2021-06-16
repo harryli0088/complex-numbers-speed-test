@@ -68,7 +68,10 @@ const divide = (dividend:  ComplexNumberObject, divisor:  ComplexNumberObject) =
   const conj = conjugate(divisor)
   const numerator = multiply(dividend, conj)
   const denominator = divisor.r**2 + divisor.i**2
-  return [numerator.i / denominator, numerator.i / denominator]
+  return {
+    i: numerator.i / denominator,
+    r: numerator.r / denominator,
+  }
 }
 
 /**
@@ -76,7 +79,7 @@ const divide = (dividend:  ComplexNumberObject, divisor:  ComplexNumberObject) =
 * @param n complex number
 * @returns the magnitude of this complex number
 */
-const magnitude = (n:  ComplexNumberObject) => Math.hypot(n.r, n.r)
+const magnitude = (n:  ComplexNumberObject) => Math.hypot(n.r, n.i)
 
 /**
 * Get the phase of this complex number between -pi and pi
